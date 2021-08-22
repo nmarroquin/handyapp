@@ -1,0 +1,16 @@
+<p class="breadcrumb-p" *ngIf="_category">
+    <a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / 
+    <a class="link inline breadcrumb-a" [routerLink]="['/home']">Servicios</a> / {{ _category.nombre }}
+</p>
+<hr class="breadcrumb-hr">
+<div>
+    <h5 class="raleway_regular" *ngIf="_category">{{ _services.length }} resultados para {{ _category.nombre }}</h5>
+</div>
+<hr>
+
+<div class="container" *ngFor="let item_service of _services">
+    <app-product-card [item_product]="item_service"></app-product-card>
+    <hr>
+</div>
+
+

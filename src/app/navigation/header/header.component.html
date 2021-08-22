@@ -1,0 +1,33 @@
+<mat-toolbar class="mat-elevation-z4">
+
+    <button mat-icon-button (click)="onToggleSidenav()">
+        <div class="toolbar-icon">
+            <mat-icon>menu</mat-icon>
+        </div>
+    </button>
+    
+    <div>
+        <a [routerLink]="['/home']"><img class="brand-img" src="/assets/img/brand/logotipo-min.png" alt="Handyman"></a>
+    </div>
+
+    <div class="menu">
+        <a class="nav-link raleway_bold" aria-current="page" [routerLink]="['/home']" routerLinkActive="router-link-active">INICIO</a>
+        <a class="nav-link raleway_bold" [routerLink]="['/downloads']" routerLinkActive="router-link-active">DESCARGAS</a>
+        <a class="nav-link raleway_bold" [routerLink]="['/categories']" routerLinkActive="router-link-active">SERVICIOS</a>
+        <a class="nav-link raleway_bold" [routerLink]="['/about']" routerLinkActive="router-link-active">NOSOTROS</a>
+        <a class="nav-link raleway_bold" [routerLink]="['/contact']" routerLinkActive="router-link-active">CONTACTO</a>
+    </div>
+    <span class="fill-space"></span>
+
+    <!-- <button mat-icon-button matTooltip="Ingreso / Registro" routerLink="/login" routerLinkActive="active-menu-item">
+        <div class="toolbar-icon">
+            <mat-icon>person</mat-icon>
+        </div>
+    </button>     -->
+    <button mat-icon-button matTooltip="Carrito de compras" routerLink="/cart" routerLinkActive="active-menu-item" [matBadge]="_validItems" matBadgePosition="after" matBadgeColor="warn">
+        <div class="toolbar-icon">
+            <mat-icon>shopping_cart</mat-icon>
+        </div>
+    </button>    
+
+</mat-toolbar>

@@ -1,0 +1,23 @@
+<mat-sidenav-container >
+    <mat-sidenav #sidenav role="navigation" mode="over">
+        <app-sidenav (sideNavClosed)="sidenav.close()">
+        </app-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxLayout="column">
+        <div class="header">
+            <app-header (sidenavToggle)="sidenav.toggle()" fxHide fxShow.lt-sm>
+            </app-header>
+        </div>
+
+        <div class="container content" #mat_content>
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </div>
+
+        <div class="footer">
+            <app-footer (sidenavToggle)="sidenav.toggle()"  fxHide fxShow.lt-sm>
+            </app-footer>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

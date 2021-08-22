@@ -1,0 +1,43 @@
+.mat-toolbar
+{
+    background-color: #3a4149;
+    color: white;
+    height: 75px;
+} 
+
+.toolbar-icon 
+{
+    display: inline-flex; 
+}
+  
+.fill-space 
+{
+    flex: 1 1 auto; 
+}
+
+.brand-img
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 3px;
+    width: 100px;
+    height: 50px;
+}
+
+.router-link-active
+{
+    color:  #FAB608 !important;
+}
+
+.menu
+{
+    display: flex;
+}
+
+@media screen and (max-width: 1000px) 
+{
+    .menu
+    {
+        display:none;
+    }
+}

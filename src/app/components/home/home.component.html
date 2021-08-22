@@ -1,0 +1,101 @@
+<!--Esta sección está visible sólo en desktop.-->
+<div class="d-none d-lg-block d-xl-block text-center main-container">
+    <div id="bannerCarousel" class="carousel carousel-banner-desktop slide" data-ride="carousel" animated fadeIn>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img [src]="_mainBanner" class="d-block w-100 carrousel-banner-img" alt="0">
+            </div>
+      
+            <div class="carousel-item" *ngFor="let item of _banners; let i=index">
+                <img [src]="item" class="d-block w-100 carrousel-banner-img" [alt]="i">
+            </div>
+        </div>
+    
+        <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+
+    <div class="container" *ngIf="_categorias.length > 0">
+        <!-- <img class="img-logotipo" src="assets/img/brand/logotipo-min.png"> -->
+        <!-- <img class="" style="border-style: solid; color: green;" src="assets/img/banner/banner01_1280x256.png"> -->
+
+
+        <p class="section-title">Compra por categoría de servicio</p>
+        <div class="card animated fadeIn" *ngFor="let item_categoria of _categorias">
+            <img (click)="openCategory(item_categoria.id)" class="card-img mx-auto" [src]="item_categoria.image" [alt]="item_categoria.nombre" >
+            <div class="card-body">
+                <h4 (click)="openCategory(item_categoria.id)" class="card-title text-center raleway_regular">{{ item_categoria.nombre }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="offersCarousel" class="carousel carousel-desktop slide" data-ride="carousel" animated fadeIn>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img [src]="_mainOffer" class="d-block w-100 carrousel-img" alt="0">
+            </div>
+      
+            <div class="carousel-item" *ngFor="let item of _offers; let i=index">
+                <img [src]="item" class="d-block w-100 carrousel-img" [alt]="i">
+            </div>
+        </div>
+    
+        <a class="carousel-control-prev" href="#offersCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#offersCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+</div>
+
+
+
+
+<!--Esta sección está visible sólo en movil.-->
+<div class="d-lg-none d-xl-none text-center" *ngIf="_categorias.length > 0">
+    <img class="img-logotipo" src="assets/img/brand/logotipo-min.png">
+    
+    <p class="section-title">Compra por categoría de servicio</p>
+
+    <div class="card card-movil animated fadeIn" *ngFor="let item_categoria of _categorias">
+        <img (click)="openCategory(item_categoria.id)" class="card-img card-img-movil mx-auto" [src]="item_categoria.image" [alt]="item_categoria.nombre" >
+        <div class="card-body-movil">
+            <h4 (click)="openCategory(item_categoria.id)" class="card-title card-title-movil text-center raleway_regular">{{ item_categoria.nombre }}</h4>
+        </div>
+    </div>
+
+    <div id="offersCarousel" class="carousel carrousel-movil slide" data-ride="carousel" animated fadeIn>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img [src]="_mainOfferMovil" class="d-block w-100 carrousel-movil-img" alt="0">
+            </div>
+        
+            <div class="carousel-item" *ngFor="let item of _offersMovil; let i=index">
+                <img [src]="item" class="d-block w-100 carrousel-movil-img" [alt]="i">
+            </div>
+        </div>
+    
+        <a class="carousel-control-prev" href="#offersCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#offersCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+</div>
+
+<br>

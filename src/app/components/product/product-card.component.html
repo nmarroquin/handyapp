@@ -1,0 +1,28 @@
+<!--Esta sección está visible sólo en desktop.-->
+<div class="d-none d-lg-block d-xl-block">
+    <div class="row animated fadeIn" (click)="openProduct()">
+        <div class="col-2 col-img  text-center">
+            <img (click)="openProduct()" class="product-img" [src]="item_product.img" [alt]="item_product.nombre" >
+        </div>
+        <div class="col-10 col-txt">
+            <h4 (click)="openProduct()" class="font-bold product-title">{{ item_product.nombre }}</h4>
+            <p class="raleway_regular product_descripcion">{{ item_product.descripcion }}</p>
+            <p class="raleway_regular">Precio inicial: Q {{ (item_product.precio || 0.00) | number:'1.2-2' }}</p>
+        </div>
+    </div>
+</div>    
+
+
+<!--Esta sección está visible sólo en movil.-->
+<div class="d-lg-none d-xl-none">
+    <div class="row animated fadeIn" (click)="openProduct()">
+        <div class="col-4 col-img text-center">
+            <img (click)="openProduct()" class="product-img-movil" [src]="item_product.img" [alt]="item_product.nombre" >
+        </div>
+        <div class="col-8 col-txt">
+            <h4 (click)="openProduct()" class="font-bold product-title">{{ item_product.nombre }}</h4>
+            <p class="raleway_regular product_descripcion">{{ item_product.descripcion }}</p>
+            <p class="raleway_regular">Precio inicial: Q {{ (item_product.precio || 0.00) | number:'1.2-2' }}</p>
+        </div>
+    </div>
+</div>

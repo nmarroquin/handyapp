@@ -1,0 +1,33 @@
+.header 
+{
+    position: fixed; 
+    height: 75px;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+/* Page content */
+.content 
+{
+    background-color: #2F353A;
+    padding-top: 85px;
+    min-height: calc(100vh - 285px); /* 200 de footer y 85 de header */
+    max-width: 90% !important;
+}
+
+mat-sidenav-container/*, mat-sidenav-content, mat-sidenav */
+{
+    background-color: #2F353A;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+  
+mat-sidenav 
+{
+    background-color: #3a4149 !important;
+    color: white;
+    width: 250px; /* Width sidenav takes up when open*/
+    height: 100vh;
+}
+  

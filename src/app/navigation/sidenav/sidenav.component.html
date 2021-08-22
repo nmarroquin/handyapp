@@ -1,0 +1,45 @@
+<mat-nav-list>
+    <img class="brand-img" src="/assets/img/brand/logotipo-min.png" alt="Handyman">
+
+    <a mat-list-item (click)="onClick('/home')">
+        <mat-icon>home</mat-icon>
+        <span class="menu-text">INICIO</span>
+    </a>
+    <a mat-list-item (click)="onClick('/downloads')">
+        <mat-icon>download</mat-icon>
+        <span class="menu-text">DESCARGAS</span>
+    </a>
+    <a mat-list-item (click)="onClick('/categories')">
+        <mat-icon>handyman</mat-icon>
+        <span class="menu-text">SERVICIOS</span>
+    </a>
+    <a mat-list-item (click)="onClick('/about')">
+        <mat-icon>info</mat-icon>
+        <span class="menu-text">NOSOTROS</span>
+    </a>
+    <a mat-list-item (click)="onClick('/contact')">
+        <mat-icon>email</mat-icon>
+        <span class="menu-text">CONTACTO</span>
+    </a>
+
+
+    <div class="list-bottom">
+        <mat-divider></mat-divider>
+        <!-- <a mat-list-item (click)="onClick('/login')">
+            <mat-icon>login</mat-icon>
+            <span class="menu-text">INGRESO</span>
+        </a>
+        <a mat-list-item (click)="onClick('/register')">
+            <mat-icon>person</mat-icon>
+            <span class="menu-text">REGISTRO</span>
+        </a> -->
+        <mat-divider></mat-divider>
+        <div class="version">
+            <span>Versión 1.0-demo</span>        
+        </div>
+        <div class="spacer">
+        </div>
+    </div>
+
+</mat-nav-list>
+

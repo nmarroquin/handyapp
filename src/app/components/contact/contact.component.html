@@ -1,0 +1,91 @@
+<p class="breadcrumb-p"><a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / Contacto</p>
+<hr class="breadcrumb-hr">
+<div class="container container-company image-border animated fadeIn">
+
+    <form class="contact-form" autocomplete="off" [formGroup]="_frmContacto" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="txtNombre" class="form-label">Nombre</label>
+            <input class="form-control" 
+                type="text" 
+                placeholder="Nombre"
+                formControlName="nombre"
+                [class.is-invalid]="validator_nombre">
+            <small *ngIf="validator_nombre" class="text-danger">
+                El nombre es obligatorio y debe tener longitud mayor de 5 letras.
+            </small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 contact-col">
+            <label for="txtTelefono" class="form-label">Teléfono</label>
+            <input class="form-control"
+                type="tel"  
+                placeholder="12345678"
+                formControlName="telefono"
+                [class.is-invalid]="validator_telefono">
+            <small *ngIf="validator_telefono" class="text-danger">
+                El teléfono es obligatorio y debe ser numérico.
+            </small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 contact-col">
+            <label for="txtEmail" class="form-label">Correo Electrónico</label>
+            <input class="form-control"
+                type="email" 
+                placeholder="nombre@correo.com"
+                formControlName="correo"
+                [class.is-invalid]="validator_correo">
+            <small *ngIf="validator_correo" class="text-danger">
+                El correo es obligatorio y debe tener un formato válido.
+            </small>
+        </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-12 contact-col">
+        <label for="txtAsunto" class="form-label">Asunto</label>
+        <input class="form-control" 
+               type="text" 
+               placeholder="Asunto"
+               formControlName="asunto"
+               [class.is-invalid]="validator_asunto">
+        <small *ngIf="validator_asunto" class="text-danger">
+            El asunto es obligatorio.
+        </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 contact-col">
+        <label for="txtMensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control" 
+                  rows="10"
+                  formControlName="mensaje"
+                  [class.is-invalid]="validator_mensaje">
+        </textarea>
+        <small *ngIf="validator_mensaje" class="text-danger">
+            El mensaje es obligatorio.
+        </small>
+       </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 contact-col">
+        <button [disabled]="loading" class="btn btn-warning float-right contact-btn btn-send" type="submit">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Enviar Mensaje
+        </button>
+    </div>
+  </div>
+
+  </form>
+
+</div>   
+
+<br>
+

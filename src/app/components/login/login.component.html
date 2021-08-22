@@ -1,0 +1,57 @@
+<p class="breadcrumb-p"><a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / Iniciar sesión</p>
+<hr class="breadcrumb-hr">
+
+<div class="container container-company image-border text-center animated fadeIn">
+
+    <img class="img-logotipo" src="assets/img/brand/logotipo-min.png">
+    <br>
+    <br>
+<p class="raleway_bold">Ingreso de Usuario</p>
+<form class="contact-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">Usuario</label>
+        <input type="text" formControlName="username" placeholder="nombre@correo.com" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Debe especificar el usuario.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" formControlName="password" placeholder="Contraseña" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Debe especificar la contraseña.</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="form-group-center">
+        <button [disabled]="loading" class="btn btn-send">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Ingresar
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/register" class="breadcrumb-a">Registrarse</a>
+    </div>
+</form>
+
+
+<hr class="divider">
+
+<div class="form-group-center">
+    <button [disabled]="loading" class="btn btn-google">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="assets/img/social/google.svg" />
+        Ingresar con Google
+    </button>
+    <button [disabled]="loading" class="btn btn-facebook">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="assets/img/social/facebook.svg" />
+        Ingresar con Facebook
+    </button>
+</div>
+<br>
+
+</div>
+
+<br>
+<br>
+<br>

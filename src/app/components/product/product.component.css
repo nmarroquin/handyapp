@@ -1,0 +1,64 @@
+.product-img
+{
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 5px solid #FAB608;    
+}
+
+.product-img-movil
+{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 5px solid #FAB608;    
+}
+
+.inline
+{
+    display: inline;
+}
+
+.select-material
+{
+    width: 50px;
+}
+
+.select-variante
+{
+    width: 500px;
+}
+
+.row-material
+{
+    margin-bottom: 10px;
+}
+
+.btn-compra
+{
+    background-color: #FAB608;
+    color: black;
+    font-family: 'raleway_bold';
+}
+
+hr
+{
+    border-top-color: black;
+}
+
+.alert-danger
+{
+    color: black;
+    border-color: #CF6679;
+    background-color: #CF6679;
+}
+
+.alert-a
+{
+    color: #FAB608;
+    font-family: raleway_bold;
+}

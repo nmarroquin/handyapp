@@ -1,0 +1,147 @@
+.card
+{
+    margin-bottom: 10px;
+    border-width: 0px;
+}
+
+.card-title
+{
+    cursor: pointer;
+    font-family: 'Raleway-Regular';
+    font-size: 16px;
+    color: #313332;
+}
+
+.card-img-top
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 160px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.product-img
+{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #FAB608;
+}
+
+.product-img-movil
+{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #FAB608;
+}
+
+.product-title
+{
+    cursor: pointer;
+    color: #FAB608;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.product_descripcion
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.col-img
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-txt
+{
+    padding-top: 0px;
+}
+
+.breadcrumb
+{
+    color: #FAB608;
+}
+
+mat-divider
+{
+    border-top-color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.product_cuantity
+{
+    margin-left: 25px;
+    margin-right: 25px;
+    display: inline-block;
+    width: 75px;
+}
+
+.btn-compra
+{
+    background-color: #FAB608;
+    color: black;
+    font-family: 'raleway_bold';
+}
+
+label
+{
+    color: #FAB608;
+}
+
+.link
+{
+    color: #FAB608 !important;
+    cursor: pointer;    
+}
+
+.cart-details
+{
+    border-radius: 10px 0px 0px 10px;
+    background-color: #121212;
+
+    min-height: 700px;
+}
+
+.cart-resume
+{
+    flex: none;
+    background-color: #121212;
+
+    border-radius: 0px 10px 10px 0px;
+    border-left-style: solid;
+    border-left-color: #2F353A;
+    border-left-width: 15px;
+
+    min-height: 700px;
+}
+
+.cart-hr
+{
+    background-color: #2F353A !important;
+}
+
+.cart-details-movil
+{
+    padding-top: 15px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #121212;
+}
+
+.cart-resume-movil
+{
+    padding-top: 15px;
+    background-color: #121212;
+    border-radius: 10px 10px 10px 10px;
+    min-height: 400px;
+}
+

@@ -1,0 +1,82 @@
+.container
+{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered-up
+{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    background-color: black;
+    color: white;
+    font-size: 2vw;
+    font-family: 'Raleway-Italic';
+
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-radius: 0px 0px 2vw 2vw;    
+  }
+
+  .centered-down
+{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    background-color: white;
+    color: black;
+    font-size: 1vw;
+    font-family: 'Raleway-BoldItalic';
+
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-radius: 2vw 2vw 0px 0px;    
+  }
+
+  .centered-center
+  {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      background-color: black;
+      color: red;
+      font-size: 3vw;
+      font-family: 'Raleway-BoldItalic';
+  
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+  
+      border-radius: 2vw 2vw 2vw 2vw;    
+    }
+
+  .img-icon
+  {
+      height: 5vw;
+      width: 5vw;
+  }
+
+  div#preloaded-images 
+  {
+    position: absolute;
+    overflow: hidden;
+    left: -9999px; 
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+ }

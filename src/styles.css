@@ -1,0 +1,133 @@
+/* *{
+   outline: 1px solid red;
+} */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face 
+{
+    font-family: gunplay_rg;
+    src: url(assets/fonts/gunplay_rg.otf);
+}
+
+@font-face
+{
+    font-family: raleway_bold;    
+    src: url(assets/fonts/Raleway-Bold.ttf);
+}
+
+@font-face
+{
+    font-family: raleway_regular;    
+    src: url(assets/fonts/Raleway-Regular.ttf);
+}
+
+.gunplay
+{
+    color: white !important;
+    opacity: 0.87;
+
+    font-family: gunplay_rg;
+    font-size: 16px !important;
+}
+
+.raleway_regular
+{
+    color: white !important;
+    opacity: 0.87;
+
+    font-family: raleway_regular;
+    font-size: 16px !important;
+}
+
+.raleway_bold
+{
+    color: white !important;
+    opacity: 0.87;
+
+    font-family: raleway_bold !important;
+    font-size: 16px !important;
+}
+
+html
+{ 
+    font-size: 16px;
+} 
+
+body
+{
+    margin: 0px;
+}
+
+.section-title
+{
+    color: white;
+    font-family: 'raleway_bold';
+    font-size: 20px;
+
+    margin-top: 15px !important;
+    margin-bottom: 30px !important;
+}
+
+.breadcrumb-p
+{
+    color: white;
+    opacity: 0.87;
+
+    margin-top: 10px !important;
+}
+
+.breadcrumb-a
+{
+    color: #FAB608 !important;
+    cursor: pointer;
+}
+
+.breadcrumb-hr
+{
+    border-color: black;
+}
+
+.animated 
+{
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast 
+  {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn 
+  {
+    from 
+    {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn 
+  {
+    animation-name: fadeIn;
+  }
+
+.img-logotipo
+{
+    margin-bottom: 15px;
+    width: 200px;
+}
+
+.text-size-14
+{
+    font-size: 14px !important;
+}

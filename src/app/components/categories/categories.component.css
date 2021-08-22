@@ -1,0 +1,114 @@
+
+/*Tarjetas para desktop*/
+.card
+{
+    width: 225px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+}
+
+.card-movil
+{
+    width: 115px;
+    margin-bottom: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+}
+
+.card-body
+{
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.card-body-movil
+{
+    xpadding-top: 5px;
+    xpadding-bottom: 0px;
+}
+
+/*Iconos para desktop*/
+.card-img
+{
+    display: block;
+    width: 150px;
+    height: 140px;
+    cursor: pointer;
+}
+
+.card-img-movil
+{
+    display: block;
+    width: 90px;
+    height: 80px;
+    cursor: pointer;
+}
+
+/*Título de tarjetas para desktop*/
+.card-title
+{
+    margin-top: 0px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-family: raleway_bold;
+}
+
+.card-title-movil
+{
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    font-family: raleway_bold;
+}
+
+/*Iconos para móvil*/
+.img-top
+{
+    width: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.container-company
+{
+    padding-top: 30px;
+    background-color: red;
+}
+
+.card-company-info
+{
+    margin-left: 0px;
+    width: 350px;
+    height: 250px;
+}
+
+.card-company
+{
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 300px;
+    height: 250px;
+}
+
+
+
+.carousel-banner-desktop
+{
+    width: 1280px !important;
+    margin: auto;
+}
+
+.carrousel-banner-img
+{
+    height: 256px;
+    margin: auto;
+}

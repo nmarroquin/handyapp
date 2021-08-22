@@ -1,0 +1,77 @@
+<p class="breadcrumb-p"><a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / Registrarse</p>
+<hr class="breadcrumb-hr">
+
+
+<div class="container container-company image-border text-center animated fadeIn">
+
+    <img class="img-logotipo" src="assets/img/brand/logotipo-min.png">
+    <br>
+    <p class="raleway_bold">Registrarse</p>
+<form class="contact-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="firstName">Nombre</label>
+        <input type="text" formControlName="firstName" placeholder="Nombre Completo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">Nombre</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Correo Electrónico</label>
+        <input type="text" formControlName="lastName" placeholder="nombre@correo.com" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Correo electrónico</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Número de teléfono</label>
+        <input type="text" formControlName="username" placeholder="1234-5678" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Número de teléfono</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" formControlName="password" placeholder="Contraseña" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Confirmar Contraseña</label>
+        <input type="password" formControlName="password" placeholder="Contraseña" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    
+    <div class="form-group-center">
+        <button [disabled]="loading" class="btn btn-send">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Registrarse
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/login" class="breadcrumb-a">Iniciar sesión</a>
+    </div>
+</form>
+
+<hr class="divider">
+
+<div class="form-group-center">
+    <button [disabled]="loading" class="btn btn-google">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="assets/img/social/google.svg" />
+        Registrarse con Google
+    </button>
+    <button [disabled]="loading" class="btn btn-facebook">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="assets/img/social/facebook.svg" />
+        Registrarse con Facebook
+    </button>
+</div>
+<br>
+</div>
+
+
+<br>
+<br>

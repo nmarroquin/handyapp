@@ -1,0 +1,316 @@
+<p class="breadcrumb-p"><a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / Carrito de compras</p>
+<hr class="breadcrumb-hr">
+
+<div class="container container-company image-border animated fadeIn">
+</div>
+
+<!--Esta sección está visible sólo en desktop.-->
+<!-- <div class="d-none d-lg-block d-xl-block"> -->
+    <form class="contact-form" [formGroup]="_frmCheckout" (ngSubmit)="onSubmit()">
+        <div class="row animated fadeIn">
+            <!-- Formulario para datos de la visita -->
+            <div class="col-8 cart-details pl-4 pr-4">
+                    <div class="container">
+                        <h1 class="section-title">Confirmar Orden</h1>
+                        <hr class="cart-hr">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input class="form-control"
+                               type="text" 
+                               placeholder="Nombre Completo" 
+                               formControlName="nombre"   
+                               [class.is-invalid]="validator_nombre" />
+
+                        <!-- <small *ngIf="validator_nombre" class="text-danger">
+                            El nombre es obligatorio y debe tener longitud mayor de 5 letras.
+                        </small>                                -->
+                        <div *ngIf="validator_nombre" class="invalid-feedback">
+                            <div *ngIf="validator_nombre">Nombre</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label for="email">Correo Electrónico</label>
+                            <input class="form-control"
+                                   type="text" 
+                                   placeholder="nombre@correo.com"
+                                   formControlName="email"   
+                                   [class.is-invalid]="validator_email" />
+                               
+                            <div *ngIf="validator_email" class="invalid-feedback">
+                                <div *ngIf="validator_email">Correo electrónico</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="telefono">Número de teléfono</label>
+                            <input class="form-control" 
+                                   type="text" 
+                                   placeholder="12345678"
+                                   formControlName="telefono"   
+                                   [class.is-invalid]="validator_telefono" />
+                            <div *ngIf="validator_telefono" class="invalid-feedback">
+                                <div *ngIf="validator_telefono">Número de teléfono</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección donde se efectuarán los trabajos</label>
+                        <input class="form-control" 
+                               type="text" 
+                               placeholder="Dirección"
+                               formControlName="direccion"   
+                               [class.is-invalid]="validator_direccion" />
+
+                        <div *ngIf="validator_direccion" class="invalid-feedback">
+                            <div *ngIf="validator_direccion">Correo electrónico</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label for="departamento">Departamento</label>
+                            <select class="form-control"
+                                    formControlName="departamento"  
+                                    [class.is-invalid]="validator_departamento" 
+                                    (change)="onStateChange($event)">
+                                <option [value]="item.id" *ngFor="let item of _depatamentos">{{ item.nombre }}</option>
+                            </select>
+
+                            <div *ngIf="validator_departamento" class="invalid-feedback">
+                                <div *ngIf="validator_departamento">Departamento</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="municipio">Municipio</label>
+                            <select class="form-control"
+                                    formControlName="municipio"  
+                                    [class.is-invalid]="validator_municipio" 
+                                    (change)="onCityChange($event)">
+                                <option [value]="item.id" *ngFor="let item of _currentState.cities">{{ item.nombre }}</option>
+                            </select>
+
+                            <div *ngIf="validator_municipio" class="invalid-feedback">
+                                <div *ngIf="validator_municipio">Municipio</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="zona">Zona</label>
+                            <select class="form-control"
+                                    ormControlName="zona"  
+                                    [class.is-invalid]="validator_zona">
+                                <option [value]="item.id" *ngFor="let item of _currentCity.zones">{{ item.nombre }}</option>
+                            </select>
+                            <div *ngIf="validator_zona" class="invalid-feedback">
+                                <div *ngIf="validator_zona">Zona</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-4">
+                            <!-- <mat-form-field appearance="fill">
+                                <mat-label>Fecha deseada para Visita Técnica</mat-label>
+                                <input class="form-control" matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field> -->
+                              <label for="fecha">Fecha deseada para Visita Técnica</label>
+                              <input class="form-control"
+                                     type="text" 
+                                     placeholder="dd/mm/aaaa" 
+                                     formControlName="fecha"  
+                                     [class.is-invalid]="validator_fecha" />
+
+                              <div *ngIf="validator_fecha" class="invalid-feedback">
+                                <div *ngIf="validator_fecha">Fecha</div>
+                              </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="hora">Hora preferida para Visita Técnica</label>
+                            <input class="form-control"
+                                   type="text" 
+                                   placeholder="hh:mm"
+                                   formControlName="hora"   
+                                   [class.is-invalid]="validator_hora" />
+                            <div *ngIf="validator_hora" class="invalid-feedback">
+                                <div *ngIf="validator_hora">Hora</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="metodoPago">Forma de Pago de la Visita Técnica</label>
+                            <select class="form-control"
+                                    formControlName="metodoPago"  
+                                    [class.is-invalid]="validator_metodoPago">
+                                <option value="1" selected>Depósito o Transferencia</option>
+                                <option value="2">VisaLink</option>>
+                            </select>
+
+                            <div *ngIf="validator_metodoPago" class="invalid-feedback">
+                                <div *ngIf="validator_metodoPago">Método de pago</div>
+                            </div>
+                        </div>  
+                    </div>     
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios o instrucciones</label>
+                        <input class="form-control"
+                               type="text"
+                               placeholder="Comentarios o instrucciones" 
+                               formControlName="comentarios"  
+                               [class.is-invalid]="validator_comentarios" />
+
+                        <div *ngIf="validator_comentarios" class="invalid-feedback">
+                            <div *ngIf="validator_comentarios">Comentarios</div>
+                        </div>
+                    </div>    
+                    
+                    <hr>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label for="nit">Número de NIT</label>
+                            <input class="form-control"
+                                   type="text"
+                                   placeholder="1234567-8" 
+                                   formControlName="nit"   
+                                   [class.is-invalid]="validator_nit" />
+
+                            <div *ngIf="validator_nit" class="invalid-feedback">
+                                <div *ngIf="validator_nit">NIT</div>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <label for="nombreFacturacion">Nombre de Facturación</label>
+                            <input class="form-control" 
+                                   type="text" 
+                                   placeholder="Nombre de facturación"
+                                   formControlName="nombreFacturacion"   
+                                   [class.is-invalid]="validator_nombreFacturacion" />
+
+                            <div *ngIf="validator_nombreFacturacion" class="invalid-feedback">
+                                <div *ngIf="validator_nombreFacturacion">Nombre de Facturación</div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <!-- Resument de la Orden -->
+            <div class="col-4 cart-resume">
+                <div class="container">
+                    <h1 class="section-title">Resumen de la Orden</h1>
+                    <hr class="cart-hr">
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="font-bold product-title">Servicios:</h4>
+                    </div>
+                    <div class="col-6 text-right">
+                        <h4 class="font-bold product-title">{{ (_handymanCart.totalItems || 0.00) | number:'1.0-0' }}</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="font-bold product-title">Total estimado:</h4>
+                    </div>
+                    <div class="col-6 text-right">
+                        <h4 class="font-bold product-title" *ngIf="!_handymanCart.personalizado">Q {{ (_handymanCart.total || 0.00) | number:'1.2-2' }}</h4>
+                        <h4 class="font-bold product-title" *ngIf="_handymanCart.personalizado">Personalizado</h4>
+                    </div>
+                </div>
+
+                <div class="container text-center mt-5 mb-5">
+                    <button class="btn btn-compra" [disabled]="(_handymanCart.totalItems===0) || loading" type="submit">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Programar Visita de Handyman
+                    </button>
+                </div>
+
+                <div class="row">
+                    <div class="col"><p class="raleway_regular text-size-14">* El precio final será definido en la visita de nuestro handyman. </p></div>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <p class="raleway_bold text-size-14 text-center">INFORMACIÓN IMPORTANTE</p>
+                        <p class="raleway_regular text-size-14">La visita de campo de nuestro Handyman a los alrededores del Naranjo, zona 4 de Mixco, se realiza sin costo. (Sólo aplica para 1 visita)</p>
+                        <p class="raleway_regular text-size-14">La visita de campo de nuestro Handyman fuera de Mixco tiene un costo de Q 175.00 a Q 250.00, dependiendo de la distancia.</p>
+                        <p class="raleway_regular text-size-14">Si la cotización de los trabajos es aceptada, el costo de la visita de campo se descontará del presupuesto final.</p>
+                        <p class="raleway_regular text-size-14 mb-0">Formas de pago de la reserva:</p>
+                        <ul>
+                            <li class="raleway_regular text-size-14">Depósito o transferencia</li>
+                            <li class="raleway_regular text-size-14">VisaLink</li>
+                            <li class="raleway_regular text-size-14">Sitio web (próximamente)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> 
+
+        </div>
+    </form>
+<!-- </div>     -->
+
+<br>
+
+<!--Esta sección está visible sólo en movil.-->
+<!-- <div class="d-lg-none d-xl-none">
+    <form>
+        <div class="container cart-resume-movil animated fadeIn">
+            <div class="container">
+                <h1 class="section-title">Resumen de la Orden</h1>
+                <hr class="cart-hr">
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="font-bold product-title">Servicios:</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <h4 class="font-bold product-title">{{ (_handymanCart.totalItems || 0.00) | number:'1.0-0' }}</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="font-bold product-title">Total estimado:</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <h4 class="font-bold product-title" *ngIf="!_handymanCart.personalizado">Q {{ (_handymanCart.total || 0.00) | number:'1.2-2' }}</h4>
+                    <h4 class="font-bold product-title" *ngIf="_handymanCart.personalizado">Personalizado</h4>
+                </div>
+            </div>
+
+            <div class="container text-center mt-5 mb-5">
+                <button type="button" class="btn btn-compra" [disabled]="(_handymanCart.totalItems===0)" (click)=contratarServicio();>Programar Visita</button>
+            </div>
+
+            <div class="row">
+                <div class="col"><p class="raleway_regular text-size-14">* El precio final será definido en la visita de nuestro handyman. </p></div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<br>
+<br> -->

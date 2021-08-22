@@ -1,0 +1,123 @@
+<div class="animated fadeIn fast" *ngIf="_service">
+    <!-- <p class="raleway_bold">{{ _service.nombre }}</p> -->
+    <p class="breadcrumb-p"><a class="breadcrumb-a" [routerLink]="['/home']">Inicio</a> / 
+                            <a class="link inline breadcrumb-a" [routerLink]="['/categories']">Servicios</a> / 
+                            <a class="link inline breadcrumb-a" [routerLink]="['/category', _category.id]">{{ _category.nombre }}</a> / 
+                            {{ _service.nombre }}</p>
+    <hr class="breadcrumb-hr">
+    <div class="container">
+        <img class="product-img" [src]="_service.img" [alt]="_service.nombre" >
+    </div>
+    <div class="container">
+        <form [formGroup]="productForm">
+            <div class="row row-precio">
+                <div class="col-8"><p class="raleway_regular mb-0">{{ _service.descripcion }}</p></div>
+                <div class="col-4"><p class="raleway_regular text-right mb-0">Precio inicial: Q {{ (_service.precio || 0.00) | number:'1.2-2' }}</p></div>
+            </div>        
+            
+            <hr>
+
+            <div *ngIf="_variants && _variants.length > 0">
+                <p class="raleway_bold">Elige una variante de la instalación:</p>
+                <div class="row">
+                    <div class="col-8">
+                        <select formControlName="varianteId" class="form-control" (change)="onChange_varianteId($event)">
+                            <option *ngFor="let variante of _variants" [value]="variante.id">{{ variante.nombre + (variante.sumar != 0 ? ' + Q '+variante.sumar : '') }}</option>
+                        </select>
+                    </div>
+                    <div class="col-4"><p class="raleway_regular text-right mb-0">+ Q {{ (_sumar || 0.00) | number:'1.2-2' }}</p></div>
+                </div>
+                <hr>
+            </div>
+
+            <p class="raleway_bold">Qué incluye el servicio:</p>
+            <ul>
+                <li class="raleway_regular">Mano de obra calificada.</li>
+                <li class="raleway_regular">Garantía de 1 mes.</li>
+                <li class="raleway_regular">Supervisión de trabajo por un profesional.</li>
+                <li class="raleway_regular">Insumos necesarios.</li>
+                <li  class="raleway_regular" *ngIf="_variante && _variante.materiales && _variante.materiales.length > 0">Materiales:</li>
+                <ul *ngIf="_variante && _variante.materiales && _variante.materiales.length > 0">
+                    <li  class="raleway_regular" *ngFor="let material of _variante.materiales">{{material.nombre}} ({{material.cantidad}} {{material.UoM}})</li>
+                </ul>
+            </ul>
+
+            <hr>
+            <div>
+                <p class="raleway_bold">Cantidad de servicios:</p>
+                <div class="row">
+                    <div class="col-3">
+                        <select formControlName="cantidad" class="form-control inline" (change)="onChange_varianteId($event)">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>  
+                    <span class="raleway_regular inline mt-2">{{ _service.UoM }}</span>
+                </div>
+            </div>
+            <hr>
+            <div class="row row-precio">
+                <div class="col text-right">
+                    <p class="raleway_bold text-right mb-0" *ngIf="!_personalizado && !_personalizadoDetalle">Precio estimado: Q {{ (_precioTotal || 0.00) | number:'1.2-2' }} *</p>
+                    <p class="raleway_bold text-right mb-0" *ngIf="_personalizado || _personalizadoDetalle">Precio personalizado</p>
+                </div>
+            </div>
+
+            <div class="row row-precio">
+                <div class="col text-right"><p class="raleway_regular mt-1">* El precio final será definido en la visita de nuestro handyman. </p></div>
+            </div>
+            
+            <div>
+                <p class="raleway_bold">Brindanos detalles del servicio:</p>
+                <input formControlName="comentarios" class="form-control" type="text" maxlength=100>
+            </div>
+
+    </form>
+    </div>
+
+    <br>
+    <div class="container text-right">
+        <button type="button" class="btn btn-compra" (click)=contratarServicio()>Agregar al carrito</button>
+        <!-- <div *ngIf="_contratar" class="alert alert-danger mt-3 text-justify">
+            Esta funcionalidad estará disponible próximamente. De momento, por favor comunícate al <a class="alert-a" href="tel:+(502)45176636">+(502)4517-6636</a> para contratar el servicio de <strong>{{ _service.nombre }}.</strong>
+        </div> -->
+    </div>
+
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
